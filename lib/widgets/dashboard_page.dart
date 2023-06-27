@@ -82,10 +82,14 @@ class _DashboardPageState extends State<DashboardPage> {
         children: [
           Chart(expenses: _recordedExpense),
           Expanded(
-            child: ExpenseList(
-              expenses: _recordedExpense,
-              onRemove: _removeExpense,
-            ),
+            child: (_recordedExpense.isNotEmpty)
+                ? ExpenseList(
+                    expenses: _recordedExpense,
+                    onRemove: _removeExpense,
+                  )
+                : const Center(
+                    child: Text('No expense found. Start adding some!'),
+                  ),
           ),
         ],
       ),
