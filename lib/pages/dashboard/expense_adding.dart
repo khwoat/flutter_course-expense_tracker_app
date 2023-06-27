@@ -92,12 +92,14 @@ class _ExpenseAddingState extends State<ExpenseAdding> {
           Row(
             children: [
               // Amount textfield
-              const Text('\$ '),
               Expanded(
                 child: TextField(
                   controller: _amountController,
                   keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(label: Text('Amount')),
+                  decoration: const InputDecoration(
+                    label: Text('Amount'),
+                    prefix: Text('\$ '),
+                  ),
                 ),
               ),
 
