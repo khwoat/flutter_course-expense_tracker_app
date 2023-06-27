@@ -29,6 +29,7 @@ class _DashboardPageState extends State<DashboardPage> {
 
   void _openAddExpenseModal() {
     showModalBottomSheet(
+      useSafeArea: true,
       isScrollControlled: true,
       context: context,
       builder: (context) => ExpenseAdding(
@@ -68,6 +69,9 @@ class _DashboardPageState extends State<DashboardPage> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Expense Tracker App'),
@@ -78,21 +82,36 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Chart(expenses: _recordedExpense),
-          Expanded(
-            child: (_recordedExpense.isNotEmpty)
-                ? ExpenseList(
-                    expenses: _recordedExpense,
-                    onRemove: _removeExpense,
-                  )
-                : const Center(
-                    child: Text('No expense found. Start adding some!'),
-                  ),
-          ),
-        ],
-      ),
+      body: width < height
+          ? Column(
+              children: [
+                Chart(expenses: _recordedExpense),
+                Expanded(
+                  child: _getExpenseList(),
+                ),
+              ],
+            )
+          : Row(
+              children: [
+                Expanded(
+                  child: Chart(expenses: _recordedExpense),
+                ),
+                Expanded(
+                  child: _getExpenseList(),
+                ),
+              ],
+            ),
     );
+  }
+
+  Widget _getExpenseList() {
+    return (_recordedExpense.isNotEmpty)
+        ? ExpenseList(
+            expenses: _recordedExpense,
+            onRemove: _removeExpense,
+          )
+        : const Center(
+            child: Text('No expense found. Start adding some!'),
+          );
   }
 }
