@@ -1,6 +1,6 @@
 import 'package:expense_tracker_app/models/expense.dart';
-import 'package:expense_tracker_app/pages/dashboard/expense_adding.dart';
-import 'package:expense_tracker_app/pages/dashboard/expense_list.dart';
+import 'package:expense_tracker_app/widgets/expense_adding.dart';
+import 'package:expense_tracker_app/widgets/expenses/expense_list.dart';
 import 'package:flutter/material.dart';
 
 class DashboardPage extends StatefulWidget {

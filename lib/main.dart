@@ -1,7 +1,12 @@
-import 'package:expense_tracker_app/pages/dashboard/dashboard_page.dart';
+import 'package:expense_tracker_app/widgets/dashboard_page.dart';
 import 'package:flutter/material.dart';
 
 final kColorScheme = ColorScheme.fromSeed(
+  seedColor: const Color.fromARGB(255, 160, 49, 193),
+);
+
+final kDarkColorScheme = ColorScheme.fromSeed(
+  brightness: Brightness.dark,
   seedColor: const Color.fromARGB(255, 160, 49, 193),
 );
 
@@ -43,6 +48,32 @@ class ExpenseTrackerApp extends StatelessWidget {
         textTheme: ThemeData().textTheme.copyWith(
               titleLarge: TextStyle(
                 color: kColorScheme.onSecondaryContainer,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+      ),
+      darkTheme: ThemeData.dark().copyWith(
+        colorScheme: kDarkColorScheme,
+        cardTheme: const CardTheme().copyWith(
+          color: kDarkColorScheme.secondaryContainer,
+          margin: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 16,
+          ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: kDarkColorScheme.primaryContainer,
+            padding: const EdgeInsets.symmetric(
+              vertical: 5,
+              horizontal: 15,
+            ),
+          ),
+        ),
+        textTheme: ThemeData.dark().textTheme.copyWith(
+              titleLarge: TextStyle(
+                color: kDarkColorScheme.onSecondaryContainer,
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
               ),
