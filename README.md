@@ -1,6 +1,6 @@
 # basic_expense_tracker_app
 
-This project is the one of the training projects of Flutter & Dart - The Complete Guide course.
+This project is the one of the training projects of Flutter & Dart - The Complete Guide course. From this project, I learned about theming and UI responsive.
 
 ## Getting Started
 
