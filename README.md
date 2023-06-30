@@ -1,6 +1,6 @@
-# expense_tracker_app
+# basic_expense_tracker_app
 
-A new Flutter project.
+This project is the one of the training projects of Flutter & Dart - The Complete Guide course.
 
 ## Getting Started
 
